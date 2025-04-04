@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tableau Périodique Interactif</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tableau Périodique des Éléments</h1>
+            <div class="controls">
+                <div class="search-bar">
+                    <input type="text" id="search-input" placeholder="Rechercher un élément...">
+                    <button id="search-button">Rechercher</button>
+                </div>
+                <div class="filters">
+                    <label for="category-filter">Filtrer par catégorie:</label>
+                    <select id="category-filter">
+                        <option value="">Toutes les catégories</option>
+                        <option value="Métaux alcalins">Métaux alcalins</option>
+                        <option value="Métaux alcalino-terreux">Métaux alcalino-terreux</option>
+                        <option value="Métaux de transition">Métaux de transition</option>
+                        <option value="Métaux post-transition">Métaux post-transition</option>
+                        <option value="Métalloïdes">Métalloïdes</option>
+                        <option value="Non-métaux">Non-métaux</option>
+                        <option value="Halogènes">Halogènes</option>
+                        <option value="Gaz nobles">Gaz nobles</option>
+                        <option value="Lanthanides">Lanthanides</option>
+                        <option value="Actinides">Actinides</option>
+                    </select>
+                    <label for="state-filter">Filtrer par état:</label>
+                    <select id="state-filter">
+                        <option value="">Tous les états</option>
+                        <option value="Solide">Solide</option>
+                        <option value="Liquide">Liquide</option>
+                        <option value="Gaz">Gaz</option>
+                    </select>
+                </div>
+                <div class="toggles">
+                    <button id="toggle-mass">Afficher les masses atomiques</button>
+                    <button id="toggle-config">Afficher les configurations électroniques</button>
+                    <button id="toggle-melting-boiling">Afficher les points de fusion/ébullition</button>
+                    <button id="toggle-dark-mode">Mode Sombre</button>
+                </div>
+            </div>
+        </header>
+        <div class="periodic-table">
+            <div class="group-number">1</div>
+            <div class="group-number">2</div>
+            <div class="group-number">3</div>
+            <div class="group-number">4</div>
+            <div class="group-number">5</div>
+            <div class="group-number">6</div>
+            <div class="group-number">7</div>
+            <div class="group-number">8</div>
+            <div class="group-number">9</div>
+            <div class="group-number">10</div>
+            <div class="group-number">11</div>
+            <div class="group-number">12</div>
+            <div class="group-number">13</div>
+            <div class="group-number">14</div>
+            <div class="group-number">15</div>
+            <div class="group-number">16</div>
+            <div class="group-number">17</div>
+            <div class="group-number">18</div>
+
+            <div class="period-number">1</div>
+            <div class="period-number">2</div>
+            <div class="period-number">3</div>
+            <div class="period-number">4</div>
+            <div class="period-number">5</div>
+            <div class="period-number">6</div>
+            <div class="period-number">7</div>
+
+            </div>
+        <div id="element-details" class="element-details">
+            </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
