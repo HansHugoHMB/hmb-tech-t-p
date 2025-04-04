@@ -1,0 +1,265 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0D1C40;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar, .filters, .toggles {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    color: #333;
+}
+
+.search-bar button, .filters select, .toggles button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #44527c;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover, .filters select:hover, .toggles button:hover {
+    background-color: #5a6996;
+}
+
+.periodic-table {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: auto repeat(7, 1fr) auto auto; /* Adjust rows for lanthanides/actinides */
+    gap: 5px;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: #0D1C40;
+    position: relative;
+}
+
+.group-number {
+    grid-row: 1;
+    text-align: center;
+    padding-bottom: 5px;
+    color: #eee;
+}
+
+.period-number {
+    grid-column: 1;
+    text-align: right;
+    padding-right: 5px;
+    color: #eee;
+    line-height: 30px; /* Adjust based on element height */
+}
+
+.element {
+    background-color: #0D1C49;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.element:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+}
+
+.element-number {
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+.element-symbol {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.element-name-fr {
+    font-size: 0.7em;
+    margin-top: 5px;
+}
+
+.element-mass {
+    font-size: 0.7em;
+}
+
+.element a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 0.6em;
+}
+
+.element a:hover {
+    text-decoration: underline;
+}
+
+.element.empty {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+}
+
+/* Category Colors */
+.category-Métaux alcalins { background-color: #FF6B6B; }
+.category-Métaux alcalino-terreux { background-color: #F08A5D; }
+.category-Métaux de transition { background-color: #FFDA63; }
+.category-Métaux post-transition { background-color: #BDB2FF; }
+.category-Métalloïdes { background-color: #98D8AA; }
+.category-Non-métaux { background-color: #8EE4AF; }
+.category-Halogènes { background-color: #45B69C; }
+.category-Gaz nobles { background-color: #6C5B7B; }
+.category-Lanthanides { background-color: #A799B7; }
+.category-Actinides { background-color: #C9BBCF; }
+
+/* Lanthanides and Actinides Positioning */
+.lanthanides-row {
+    grid-row: 8;
+    grid-column: 3 / 18;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.actinides-row {
+    grid-row: 9;
+    grid-column: 3 / 18;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.lanthanide, .actinide {
+    @extend .element; /* Inherit base element styles */
+}
+
+.lanthanide:hover, .actinide:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.5);
+}
+
+#element-details {
+    background-color: #0D1C49;
+    color: white;
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#element-details h2 {
+    margin-top: 0;
+}
+
+#element-details p {
+    margin-bottom: 10px;
+}
+
+.state-indicator {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+.state-Solide { background-color: #5cb85c; }
+.state-Liquide { background-color: #5bc0de; }
+.state-Gaz { background-color: #f0ad4e; }
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #121212;
+    color: #eee;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+}
+
+body.dark-mode .periodic-table {
+    background-color: #121212;
+    border-color: #333;
+}
+
+body.dark-mode .element {
+    background-color: #2c2c2c;
+    border-color: #333;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .element:hover {
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.9);
+}
+
+body.dark-mode .element a {
+    color: #ccc;
+}
+
+body.dark-mode .search-bar input[type="text"] {
+    background-color: #333;
+    color: #eee;
+    border-color: #555;
+}
+
+body.dark-mode .search-bar button,
+body.dark-mode .filters select,
+body.dark-mode .toggles button {
+    background-color: #333;
+    color: #eee;
+    border-color: #555;
+}
+
+body.dark-mode .search-bar button:hover,
+body.dark-mode .filters select:hover,
+body.dark-mode .toggles button:hover {
+    background-color: #444;
+}
+
+body.dark-mode #element-details {
+    background-color: #2c2c2c;
+    border-color: #333;
+}
